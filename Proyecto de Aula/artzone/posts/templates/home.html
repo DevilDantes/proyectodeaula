@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArtZone</title>
+
+    {% load static %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"> <!-- Eliminar el atributo integrity si no está completo -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'templates/style.css' %}">  <!-- Carga tu CSS aquí -->
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-2 sidebar d-flex flex-column">
+            <a href="#" class="navbar-brand text-center mb-4">ArtZone</a>
+
+            <ul class="nav flex-column">
+                <li class="nav-item"><a href="#" class="nav-link active"><i class="fas fa-home"></i> Inicio</a></li>
+                <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-search"></i> Explorar</a></li>
+                <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-bell"></i> Notificaciones</a></li>
+                <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-envelope"></i> Mensajes</a></li>
+                <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-bookmark"></i> Guardados</a></li>
+                <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-user"></i> Perfil</a></li>
+                <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-store"></i> Galería</a></li>
+                <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-gavel"></i> Subastas</a></li>
+                <li class="nav-item mt-auto"><a href="#" class="btn btn-primary w-100">Postear</a></li>
+            </ul>
+            <div class="profile-section mb-4 d-flex align-items-center position-relative">
+                <img src="{% static 'img/th.jpeg' %}" class="rounded-circle me-2" alt="Imagen de perfil" style="width: 50px; height: 50px;">
+                <div>
+                    <h6 class="mb-0">ZeuSmaxis <i class="fas fa-lock"></i></h6>
+                    <small class="text-muted">@XdalexJuan</small>
+                </div>
+                <div class="ms-auto dropdown">
+                    <button class="btn btn-link text-white p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-ellipsis-h"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end text-white" aria-labelledby="dropdownMenuButton">
+                        <li><a class="dropdown-item text-white" href="#">Agregar una cuenta existente</a></li>
+                        <li><a class="dropdown-item text-white" href="#">Cerrar la sesión de @XdalexJuan</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        
+        <main class="col-md-8">
+            <div class="post-card mb-4">
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <h5>¿Qué estás creando hoy?</h5>
+                    <input type="text" name="username" placeholder="Tu nombre" class="form-control mb-3" required>
+                    <textarea name="content" class="form-control mb-3" placeholder="Escribe aquí..." required></textarea>
+                    
+                    <div class="d-flex justify-content-between">
+                        <button type="button" class="btn btn-outline-light" onclick="document.getElementById('media-upload').click()">
+                            <i class="fas fa-upload"></i> Subir imagen o video
+                        </button>
+                        <button type="submit" class="btn btn-primary">Postear</button>
+                    </div>
+                    <input type="file" id="media-upload" name="image" accept="image/*,video/*" style="display: none;">
+                </form>
+            </div>
+            {% for post in posts %}
+            <div class="post-card mb-4">
+                <div class="d-flex align-items-center mb-3">
+                    <img src="{% static 'img/th.jpeg' %}" class="rounded-circle me-2" alt="Imagen de perfil" style="width: 40px; height: 40px;">
+                    <h6>{{ post.username }}</h6>
+                </div>
+                <p>{{ post.content }}</p>
+                {% if post.image %}
+                <img src="{{ post.image }}" alt="Imagen de publicación" class="img-fluid mb-3">
+                {% endif %}
+                <div class="d-flex justify-content-between mt-3">
+                    <a href="#" class="btn btn-dark text-light me-2">
+                        <i class="fas fa-heart"></i> Me gusta <span class="like-count">200</span>
+                    </a>
+                    <a href="#" class="btn btn-dark text-light me-2">
+                        <i class="fas fa-retweet"></i> Compartir <span class="share-count">150</span>
+                    </a>
+                    <a href="#" class="btn btn-dark text-light me-2">
+                        <i class="fas fa-comment"></i> Comentar <span class="comment-count">100</span>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </main>
+
+        <aside class="col-md-4 trends">
+            <div class="trend-search mb-4 p-3" style="background-color: #192734; border-radius: 8px;">
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Buscar tendencias" aria-label="Buscar tendencias">
+                    <button class="btn btn-outline-light" type="submit"><i class="fas fa-search"></i></button>
+                </form>
+            </div>
+                
+            <div class="trend-card">
+                <h5>Tendencias</h5>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item bg-transparent">
+                        <a href="tendencias.html?hashtag=SpiderMan4" class="text-white text-decoration-none">#SpiderMan4</a>
+                    </li>
+                    <li class="list-group-item bg-transparent">
+                        <a href="tendencias.html?hashtag=MilleTeniaRazon" class="text-white text-decoration-none">#MilleTeniaRazon</a>
+                    </li>
+                    <li class="list-group-item bg-transparent">
+                        <a href="tendencias.html?hashtag=VenomTheLastDance" class="text-white text-decoration-none">#VenomTheLastDance</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="recommendation-card mt-4">
+                <h5>A quién seguir</h5>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item bg-transparent text-white d-flex justify-content-between align-items-center">
+                        <a href="perfil1.html" class="d-flex align-items-center text-white text-decoration-none">
+                            <img src="{% static 'img/th.jpeg' %}" alt="Perfil de Cellblock Psycho" class="rounded-circle me-2" style="width: 40px; height: 40px;">
+                            <span>Cellblock Psycho</span>
+                        </a>
+                        <button class="btn btn-sm btn-outline-light">Seguir</button>
+                    </li>
+                    <li class="list-group-item bg-transparent text-white d-flex justify-content-between align-items-center">
+                        <a href="perfil2.html" class="d-flex align-items-center text-white text-decoration-none">
+                            <img src="{% static 'img/th.jpeg' %}" alt="Perfil de I love my SUPP" class="rounded-circle me-2" style="width: 40px; height: 40px;">
+                            <span>I love my SUPP</span>
+                        </a>
+                        <button class="btn btn-sm btn-outline-light">Seguir</button>
+                    </li>
+                    <li class="list-group-item bg-transparent text-white d-flex justify-content-between align-items-center">
+                        <a href="perfil3.html" class="d-flex align-items-center text-white text-decoration-none">
+                            <img src="{% static 'img/th.jpeg' %}" alt="Perfil de ThePumpKing" class="rounded-circle me-2" style="width: 40px; height: 40px;">
+                            <span>ThePumpKing</span>
+                        </a>
+                        <button class="btn btn-sm btn-outline-light">Seguir</button>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script> <!-- Solo una vez -->
+</body>
+</html>

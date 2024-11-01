@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArtZone</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh; 
+        }
+    </style>
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-2 sidebar d-flex flex-column">
+            <a href="#" class="navbar-brand text-center mb-4">ArtZone</a>
+            <ul class="nav flex-column">
+                <li class="nav-item"><a href="#" class="nav-link active"><i class="fas fa-home"></i> Inicio</a></li>
+                <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-search"></i> Explorar</a></li>
+                <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-bell"></i> Notificaciones</a></li>
+                <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-envelope"></i> Mensajes</a></li>
+                <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-bookmark"></i> Guardados</a></li>
+                <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-user"></i> Perfil</a></li>
+                <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-store"></i> Galería</a></li>
+                <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-gavel"></i> Subastas</a></li>
+                <li class="nav-item mt-auto"><a href="#" class="btn btn-primary w-100">Postear</a></li>
+            </ul>
+        </nav>
+
+        <main class="col-md-6 content">
+            <div class="text-center">
+                <h2>Bienvenido a ArtZone</h2>
+                <p>Inicia sesión para ver tus actividades y publicar contenido.</p>
+                <a href="login.html" class="btn btn-primary">Iniciar sesión</a>
+                <a href="register.html" class="btn btn-secondary">Registrarse</a>
+            </div>
+        </main>
+
+        <aside class="col-md-4 trends">
+            <div class="trend-search mb-4 p-3" style="background-color: #192734; border-radius: 8px;">
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Buscar tendencias" aria-label="Buscar tendencias">
+                    <button class="btn btn-outline-light" type="submit"><i class="fas fa-search"></i></button>
+                </form>
+            </div>
+                
+            <div class="trend-card">
+                <h5>Tendencias</h5>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item bg-transparent">
+                        <a href="tendencias.html?hashtag=SpiderMan4" class="text-white text-decoration-none">#SpiderMan4</a>
+                    </li>
+                    <li class="list-group-item bg-transparent">
+                        <a href="tendencias.html?hashtag=MilleTeniaRazon" class="text-white text-decoration-none">#MilleTeniaRazon</a>
+                    </li>
+                    <li class="list-group-item bg-transparent">
+                        <a href="tendencias.html?hashtag=VenomTheLastDance" class="text-white text-decoration-none">#VenomTheLastDance</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="recommendation-card mt-4">
+                <h5>A quién seguir</h5>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item bg-transparent text-white d-flex justify-content-between align-items-center">
+                        <a href="perfil1.html" class="d-flex align-items-center text-white text-decoration-none">
+                            <img src="img/th.jpeg" alt="Perfil de Cellblock Psycho" class="rounded-circle me-2" style="width: 40px; height: 40px;">
+                            <span>Cellblock Psycho</span>
+                        </a>
+                        <button class="btn btn-sm btn-outline-light">Seguir</button>
+                    </li>
+                    <li class="list-group-item bg-transparent text-white d-flex justify-content-between align-items-center">
+                        <a href="perfil2.html" class="d-flex align-items-center text-white text-decoration-none">
+                            <img src="img/th.jpeg" alt="Perfil de I love my SUPP" class="rounded-circle me-2" style="width: 40px; height: 40px;">
+                            <span>I love my SUPP</span>
+                        </a>
+                        <button class="btn btn-sm btn-outline-light">Seguir</button>
+                    </li>
+                    <li class="list-group-item bg-transparent text-white d-flex justify-content-between align-items-center">
+                        <a href="perfil3.html" class="d-flex align-items-center text-white text-decoration-none">
+                            <img src="img/th.jpeg" alt="Perfil de Mapple vs Vado" class="rounded-circle me-2" style="width: 40px; height: 40px;">
+                            <span>Mapple vs Vado</span>
+                        </a>
+                        <button class="btn btn-sm btn-outline-light">Seguir</button>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+    
+    <footer class="footer mt-auto py-3">
+        <div class="container text-center">
+            <hr class="footer-divider">
+            <ul class="list-inline mb-2">
+                <li class="list-inline-item"><a href="condiciones.html" class="text-decoration-none">Condiciones de uso</a></li>
+                <li class="list-inline-item"><a href="politicas.html" class="text-decoration-none">Políticas de privacidad</a></li>
+                <li class="list-inline-item"><a href="contacto.html" class="text-decoration-none">Contacto</a></li>
+                <li class="list-inline-item"><a href="accesibilidad.html" class="text-decoration-none">Accesibilidad</a></li>
+                <li class="list-inline-item"><a href="ayuda.html" class="text-decoration-none">Ayuda</a></li>
+            </ul>
+            <p class="small">© 2023 ArtZone. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

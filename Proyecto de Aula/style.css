@@ -1,0 +1,139 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #15202b;
+    color: #ffffff;
+}
+
+.sidebar {
+    background-color: #192734;
+    min-height: 100vh;
+    padding-top: 20px;
+}
+
+.sidebar .nav-link {
+    color: #ffffff;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+}
+
+.sidebar .nav-link.active {
+    color: #1da1f2;
+    font-weight: bold;
+}
+
+.sidebar .nav-link:hover {
+    color: #1da1f2;
+}
+
+.profile-section {
+    padding: 10px;
+    background-color: #192734;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    background-color: #10171e;
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    margin-bottom: 30px; 
+    margin-top: 20px;
+}
+
+.profile-section h6 {
+    font-size: 1rem;
+    color: #ffffff;
+}
+
+.profile-section .text-muted {
+    font-size: 0.85rem;
+    color: #8899a6;
+}
+
+.profile-section .btn-link {
+    color: #8899a6;
+}
+
+.profile-section .btn-link:hover {
+    color: #ffffff;
+}
+
+.content, .trends {
+    background-color: #15202b;
+    padding: 20px;
+}
+
+.post-card, .trend-card, .recommendation-card {
+    background-color: #192734;
+    border: none;
+    border-radius: 10px;
+    color: #ffffff;
+    margin-bottom: 20px;
+    padding: 15px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.post-card img {
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary {
+    background-color: #1da1f2;
+    border: none;
+}
+
+.post-card a {
+    color: #ffffff;
+    transition: color 0.3s;
+}
+
+.post-card a:hover {
+    color: #1da1f2;
+}
+
+.dropdown-menu {
+    background-color: #1c1c1c;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.dropdown-item {
+    color: #ffffff;
+    padding: 10px 20px;
+}
+
+.dropdown-item:hover {
+    background-color: #333333; 
+    color: #ffffff;
+}
+.footer {
+    background-color: #10171e; /* Fondo más oscuro para contrastar */
+    color: #8899a6;
+    padding: 20px 0;
+}
+
+.footer-divider {
+    border-top: 1px solid #333;
+    margin-bottom: 15px;
+}
+
+.footer a {
+    color: #8899a6;
+    transition: color 0.3s;
+}
+
+.footer a:hover {
+    color: #ffffff;
+}
+.btn-dark {
+    border-radius: 20px; 
+    transition: background-color 0.3s, color 0.3s; 
+}
+
+.btn-dark:hover {
+    background-color: #343a40; 
+    color: #f8f9fa; 
+}
+
+
